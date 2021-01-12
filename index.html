@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animacija</title>
+    <style>
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            background: #050210;
+        }
+
+        .container1 {
+            position: absolute;
+            height: 500px;
+            width:  500px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -180px 0 0 -180px;
+            height: 360px;
+            width: 360px;
+            border-radius: 50%;
+            background-image: repeating-linear-gradient(to left, #fb5dad, #55fb9f, #b97aff);
+            animation: rotate linear 1s infinite;
+        }
+
+        .circle1 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 300px;
+            width: 300px;
+            margin: -150px 0 0 -150px;
+            border-radius: 50%;
+            background: #050210;
+            
+        }
+
+        .circle1::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 300px;
+            width: 300px;
+            margin: -150px 0 0 -150px;
+            border-radius: 50%;
+            background:#050210;
+            filter: brightness(200%);
+            animation: pulse 1s infinite ease-out;
+        }
+
+        .circle2 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 400px;
+            width: 400px;
+            border-radius: 50%;
+            margin: -200px 0 0 -200px;
+            background-image: repeating-linear-gradient(to left, #fb5dad, #55fb9f, #b97aff);
+            z-index: -1;
+            filter: blur(40px);
+            animation: rotate linear 1s infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="circle"></div>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+    </div>
+</body>
+</html>
